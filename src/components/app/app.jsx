@@ -5,31 +5,23 @@ import React, { useState, useEffect  } from 'react';
 
 import Header from '../AppHeader/AppHeader';
 
-import Api from '../../Api/Api'
+import api, {configBurger} from '../../Api/Api'
+
+
 
 function App() {
 
-  const [state, setState] = useState({
-    data: []
-  });
+const [ingredients, setIngredients] = useState([]);
 
-   useEffect(() => { 
-     const  getDataIngredient= async () => {
 
-     let ingredients;
-       //вызываю асинхронный вызов и его обработку
-     try {
-        ingredients = await Api.getIngredients();
-  
-        ingredients && setState({ingredients});
-
-     } catch(err) {
-       console.dir(err);
-     }
-  }  
-    getDataIngredient();
-
-  }, []);
+useEffect(() => {
+  api
+    .getIngredients()
+    .then((data) => {
+      setIngredients(data);
+    })
+    .catch((err) => console.log(err));
+}, []);
 
 
   return (

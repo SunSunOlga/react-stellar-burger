@@ -1,6 +1,9 @@
-const baseUrl = 'https://norma.nomoreparties.space/api/ingredients';
 
-class Api {
+export class Api {
+  constructor({baseUrl, ingredients}) {
+    this._baseUrl = baseUrl;
+    this._ingredients = ingredients;   
+ }
 
 _checkResponse(res) {
     if (res.ok) {
@@ -18,7 +21,7 @@ _checkResponse(res) {
  }
 
 getIngredients = () => {
-    return fetch(`${baseUrl}/ingredients`, {
+    return fetch(`${this.baseUrl}/ingredients`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,5 +31,13 @@ getIngredients = () => {
   }
 }
 
-export default Api;
+const configBurger = {
+  baseUrl: 'ttps://norma.nohmoreparties.space/api',
+  ingredients: '/ingredients',
+}
+
+
+const api = new Api(configBurger)
+
+export default api;
   
