@@ -1,11 +1,18 @@
 import styles from "./app.module.css";
+
 import { data } from "../../utils/data";
 
 import React, { useState, useEffect  } from 'react';
 
-import Header from '../AppHeader/AppHeader';
-
 import api, {configBurger} from '../../Api/Api'
+
+import AppHeader, {Logo, BurgerLink} from '../AppHeader/AppHeader';
+
+import Main from '../Main/Main';
+
+import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
+
+import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
 
 
 
@@ -25,14 +32,12 @@ useEffect(() => {
 
 
   return (
+    <>
     <div className={styles.app}>
-      <pre style={{
-      	margin: "auto",
-      	fontSize: "1.5rem"
-      }}>
-      	Измените src/components/app/app.jsx и сохраните для обновления.
-      </pre>
+     <AppHeader />
+     <Main data={data}/>
     </div>
+    </>
   );
 }
 

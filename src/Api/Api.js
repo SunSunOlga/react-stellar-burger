@@ -21,7 +21,7 @@ _checkResponse(res) {
  }
 
 getIngredients = () => {
-    return fetch(`${this.baseUrl}/ingredients`, {
+    return fetch(`${this._baseUrl}/ingredients`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ getIngredients = () => {
 }
 
 const configBurger = {
-  baseUrl: 'ttps://norma.nohmoreparties.space/api',
+  baseUrl: 'https://norma.nomoreparties.space/api',
   ingredients: '/ingredients',
 }
 
