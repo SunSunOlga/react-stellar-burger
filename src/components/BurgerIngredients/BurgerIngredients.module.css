@@ -1,5 +1,5 @@
 .ingredients {
-    min-width: 700px;
+    min-width: 600px;
     display: flex;
     flex-direction: column;
 }
@@ -9,24 +9,24 @@
     flex-direction: row;
 }
 
-.IngerientsSection {
+.IngredientSection {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
 }
 
-.IngerientsSection::-webkit-scrollbar {
+.IngredientSection::-webkit-scrollbar {
     width: 8px;
+    background-color: #2f2f37;
 }
-.IngerientsSection::-webkit-scrollbar-track {
-    background: #2f2f37;
+
+.IngredientSection::-webkit-scrollbar-thumb {
+  background: #8585AD;
+  scroll-behavior: smooth;
+  border: 3px solid #8585AD;
   }
 
-.IngerientsSection::-webkit-scrollbar-thumb {
-    background: #a5a5d6;
-  }
-
-.IngerientsSection::-webkit-scrollbar-thumb:hover {
+.IngredientSection::-webkit-scrollbar-thumb:hover {
     background: #8585ad;
   }
 
