@@ -10,15 +10,20 @@ import AppHeader, { Logo, BurgerLink } from '../AppHeader/AppHeader';
 
 import Main from '../Main/Main';
 
-import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
-
-import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
+import Modal from "../Modal/Modal";
 
 
 
 function App() {
 
   const [ingredients, setIngredients] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [ headerModal, setheaderModal] = useState('');
+  
+
+  function openModal() {
+     
+  }
 
 
   useEffect(() => {
@@ -35,7 +40,11 @@ function App() {
     <>
       <div className={styles.app}>
         <AppHeader />
-        <Main data={data} />
+        <Main data={data} openModal={openModal}/>
+
+{isModalOpen && <Modal headerModal={headerModal} setIsModalOpen={setIsModalOpen}/> }
+        
+        
       </div>
     </>
   );

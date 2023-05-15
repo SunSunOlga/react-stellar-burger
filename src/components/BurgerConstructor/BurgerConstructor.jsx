@@ -30,7 +30,6 @@ function BurgerConstructor({ data }) {
         ))}
       </div>
 
-
       <ConstructorElement
         type="bottom"
         isLocked={true}
