@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   background-color: #1c1c21;
-  top:calc(50vh - 300px);
-  left:calc(50vw - 200px);
+  top: calc(50vh - 300px);
+  left: calc(50vw - 200px);
 
   border-radius: 40px;
   border: 1px solid rgba(76, 76, 255, 0.2);
@@ -22,11 +22,11 @@
 }
 
 .modalCard {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  align-items: center;
 }
 
 .closeIcon {
@@ -34,4 +34,8 @@
   cursor: pointer;
   top: -150px;
   right: 40px;
+}
+
+.headerModal {
+  text-align: start;
 }

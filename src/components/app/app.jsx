@@ -17,7 +17,7 @@ import Modal from "../Modal/Modal";
 function App() {
 
   const [ingredients, setIngredients] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [ headerModal, setheaderModal] = useState('');
   
 

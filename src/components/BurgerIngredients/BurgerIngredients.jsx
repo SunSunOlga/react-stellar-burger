@@ -7,7 +7,7 @@ import { ingredientPropType } from '../../utils/prop-types'
 
 
 
-function BurgerIngredients({ data }) {
+function BurgerIngredients({ data, openModal }) {
 
   const buns = data.filter((item) => item.type === "bun");
   const sauces = data.filter((item) => item.type === "sauce");
@@ -40,7 +40,7 @@ function BurgerIngredients({ data }) {
         </p>
         <div className={ingredientsStyles.cardsList}>
           {buns.map(bun => (
-            <IngredientCard data={bun} key={bun._id} header='Булки' />
+            <IngredientCard data={bun} key={bun._id} openModal={openModal} />
           ))}
         </div>
         <p className='mt-10 text text_type_main-medium'>
@@ -48,7 +48,7 @@ function BurgerIngredients({ data }) {
         </p>
         <div className={ingredientsStyles.cardsList}>
           {sauces.map(sauce => (
-            <IngredientCard data={sauce} key={sauce._id} header='Булки' />
+            <IngredientCard data={sauce} key={sauce._id} openModal={openModal}/>
           ))}
         </div>
         <p className='mt-10 text text_type_main-medium'>
@@ -56,7 +56,7 @@ function BurgerIngredients({ data }) {
         </p>
         <div className={ingredientsStyles.cardsList}>
           {mains.map(main => (
-            <IngredientCard data={main} key={main._id} header='Булки' />
+            <IngredientCard data={main} key={main._id} openModal={openModal} />
           ))}
         </div>
 

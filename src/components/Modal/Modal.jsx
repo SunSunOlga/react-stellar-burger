@@ -16,7 +16,7 @@ function Modal({  closeModal, children, headerModal, setIsModalOpen }) {
                     <div className={styleModal.modalCard}>
                         <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
                         <div className={`${styleModal.closeIcon} `}>
-                            <CloseIcon type="primary" onClick={() => setIsModalOpen(false)}/>
+                            <CloseIcon type="primary" onClick={() => setIsModalOpen(true)}/>
     
                             </div>         
                         </div>
