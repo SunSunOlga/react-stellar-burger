@@ -13,18 +13,18 @@ function BurgerConstructor({data}) {
         isLocked={true}
         text="Краторная булка N-200i (верх)"
         price={200}
-        thumbnail={bunBurger.img}
+        thumbnail={bunBurger.image}
       />
       
       <div className={styleConstructor.sectionConstructor} >
 {data.map((item) => (
-<div className={styleConstructor.burgerData} key={item._id}>
+<div key={item._id} className={`${styleConstructor.burgerData} pt-4`} >
 <DragIcon type="primary" />
 
       <ConstructorElement
          text={item.name}
          price={item.price}
-        thumbnail={item.img}
+        thumbnail={item.image}
       />
 </div>
 ))}
@@ -36,7 +36,7 @@ function BurgerConstructor({data}) {
         isLocked={true}
         text="Краторная булка N-200i (низ)"
         price={200}
-        thumbnail={bunBurger.img}
+        thumbnail={bunBurger.image}
       />
 <div className={`${styleConstructor.footerConstructor} mt-10`}>
   <div className={`${styleConstructor.price} mr-10`}>
