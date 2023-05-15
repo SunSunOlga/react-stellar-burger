@@ -3,16 +3,16 @@ import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import styleMain from './Main.module.css'
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor'
 
-function Main ({data}) {
-  
+function Main({ data }) {
+
   return (
-      <div className={styleMain.main}>
-    
-      <BurgerIngredients data={data}/>
+    <div className={styleMain.main}>
 
-      <BurgerConstructor data={data}/>
-      </div>
-    );
-  }
+      <BurgerIngredients data={data} />
 
-  export default Main;
+      <BurgerConstructor data={data} />
+    </div>
+  );
+}
+
+export default Main;
