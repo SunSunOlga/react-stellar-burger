@@ -48,7 +48,7 @@ function App() {
         <AppHeader />
         <Main data={data} openModal={openModal} />
         {isModalOpen && (
-          <Modal headerModal={headerModal} onClose={closeModal} >
+          <Modal headerModal={headerModal} closeModal={closeModal} >
             {childModal}
             </Modal>
         )}
