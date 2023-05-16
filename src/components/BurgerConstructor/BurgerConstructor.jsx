@@ -1,11 +1,16 @@
 import React from 'react';
 import styleConstructor from '../BurgerConstructor/BurgerConstructor.module.css'
 import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
+import OrderDetails from '../OrderDetails/OrderDetails';
 
-function BurgerConstructor({ data }) {
+function BurgerConstructor({ data, openModal }) {
 
   const bunBurger = data.find((item) => item.type === 'bun');
-
+  function onClick() {
+    const childModal = <OrderDetails order={'034536'} />;
+    openModal(childModal);
+  }
+  
   return (
     <div className="mt-25 ml-4">
       <ConstructorElement
@@ -42,7 +47,7 @@ function BurgerConstructor({ data }) {
           <p className="text text_type_digits-medium pr-3">610</p>
           <CurrencyIcon type="primary" />
         </div>
-        <Button htmlType="button" type="primary" size="medium">
+        <Button htmlType="button" type="primary" size="medium" onClick={onClick}>
           Оформить заказ
         </Button>
       </div>
