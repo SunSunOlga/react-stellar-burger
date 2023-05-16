@@ -28,9 +28,9 @@ function Modal({ closeModal, children, headerModal = '' }) {
 
 
     return ReactDOM.createPortal(
-
+        <>
+<div className={`${styleModal.overlayModal} `} onClick={clickOverlay}>
         <div className={`${styleModal.modalBase} `}>
-            <div className={`${styleModal.overlayModal} `} onClick={clickOverlay}></div>
             <div className={styleModal.modalCard}>
                 <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
                 <div className={`${styleModal.closeIcon} `}>
@@ -39,11 +39,12 @@ function Modal({ closeModal, children, headerModal = '' }) {
                 </div>
                 {children}
             </div>
-        </div>,
+        </div>
+        </div>
+        </>,
         modalRoot
+       
     );
-
-
 };
 
 export default Modal;

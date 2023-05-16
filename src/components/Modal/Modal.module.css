@@ -1,5 +1,4 @@
 .modalBase {
-  width: 720px;
   min-height: 500px;
   position: fixed;
   margin: auto;
@@ -15,15 +14,22 @@
 }
 
 .overlayModal {
-  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 1;
   z-index: 0;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .modalCard {
   display: flex;
   position: relative;
-  z-index: 1;
+  z-index: 6;
   width: 100%;
   align-items: center;
 }
@@ -31,7 +37,7 @@
 .closeIcon {
   position: absolute;
   cursor: pointer;
-  top: -150px;
+  top: -35px;
   right: 40px;
 }
 

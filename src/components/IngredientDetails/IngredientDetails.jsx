@@ -5,7 +5,8 @@ import styleDetails from './IngredientDetails.module.css'
 function IngredientDetails({ item }) {
     return (
         <div className={styleDetails.detailsSection}>
-            <img className={`${styleDetails.detailsImage} mr-5 ml-5`} src={item.image} alt={item.name} />
+            <p className="text text_type_main-large">Детали ингредиента</p>
+            <img src={item.image_large} alt={item.name} className={`${styleDetails.detailsImage} mr-5 ml-5`}  />
             <p className={`${styleDetails.detailsName} text text_type_main-medium mt-4`}>{item.name}</p>
 
             <div className={`${styleDetails.detailsInfo} text text_type_main-medium mt-4`}>

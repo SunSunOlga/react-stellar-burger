@@ -16,12 +16,12 @@ import Modal from "../Modal/Modal";
 
 function App() {
 
-  const [ingredients, setIngredients] = React.useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [headerModal, setheaderModal] = React.useState('');
   const [childModal, setChildModal] = React.useState('')
 
-  function openModal (modalHeaderName = '',mainModal) {
+  function openModal (modalHeaderName = '', mainModal) {
     setheaderModal(modalHeaderName);
     setChildModal(mainModal);
     setIsModalOpen(true);

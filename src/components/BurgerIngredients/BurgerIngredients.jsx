@@ -39,24 +39,24 @@ function BurgerIngredients({ data, openModal }) {
           Булки
         </p>
         <div className={ingredientsStyles.cardsList}>
-          {buns.map(bun => (
-            <IngredientCard data={bun} key={bun._id} openModal={openModal} />
+          {buns.map(item => (
+            <IngredientCard item={item} key={item._id} openModal={openModal} />
           ))}
         </div>
         <p className='mt-10 text text_type_main-medium'>
           Соусы
         </p>
         <div className={ingredientsStyles.cardsList}>
-          {sauces.map(sauce => (
-            <IngredientCard data={sauce} key={sauce._id} openModal={openModal}/>
+          {sauces.map(item => (
+            <IngredientCard item={item} key={item._id} openModal={openModal}/>
           ))}
         </div>
         <p className='mt-10 text text_type_main-medium'>
           Начинки
         </p>
         <div className={ingredientsStyles.cardsList}>
-          {mains.map(main => (
-            <IngredientCard data={main} key={main._id} openModal={openModal} />
+          {mains.map(item => (
+            <IngredientCard item={item} key={item._id} openModal={openModal} />
           ))}
         </div>
 
