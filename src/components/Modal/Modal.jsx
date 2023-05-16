@@ -1,33 +1,48 @@
 import React from 'react';
-import ReactDOM, {createPortal} from 'react-dom';
+import ReactDOM, { createPortal } from 'react-dom';
 import styleModal from '../Modal/Modal.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
 
 const modalRoot = document.getElementById("modal");
 
-function Modal({  closeModal, children, headerModal, setIsModalOpen }) {
+function Modal({ closeModal, children, headerModal = '' }) {
 
-   
-        return ReactDOM.createPortal(
-            (
-                <div className={`${styleModal.modalBase} `}>
-                    <div className={`${styleModal.overlayModal} `} onClick={closeModal}></div>
-                    <div className={styleModal.modalCard}>
-                        <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
-                        <div className={`${styleModal.closeIcon} `}>
-                            <CloseIcon type="primary" onClick={() => setIsModalOpen(true)}/>
-    
-                            </div>         
-                        </div>
-                       {children}
-                   
-    
+    function pressEsc(evt) {
+        if (evt.key === 'Escape') {
+            evt.preventDefault();
+            closeModal();
+        }
+    }
+
+    function clickOverlay() {
+        closeModal();
+    }
+
+    React.useEffect(() => {
+        document.addEventListener('keydown', pressEsc);
+        return () => {
+            document.addEventListener('keydown', pressEsc);
+        };
+    }, []);
+
+
+    return ReactDOM.createPortal(
+
+        <div className={`${styleModal.modalBase} `}>
+            <div className={`${styleModal.overlayModal} `} onClick={clickOverlay}></div>
+            <div className={styleModal.modalCard}>
+                <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
+                <div className={`${styleModal.closeIcon} `}>
+                    <CloseIcon type="primary" onClick={closeModal} />
+
                 </div>
-            
-            ),modalRoot
-        );
- 
+                {children}
+            </div>
+        </div>,
+        modalRoot
+    );
+
 
 };
 

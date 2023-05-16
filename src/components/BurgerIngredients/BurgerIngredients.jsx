@@ -12,7 +12,7 @@ function BurgerIngredients({ data, openModal }) {
   const buns = data.filter((item) => item.type === "bun");
   const sauces = data.filter((item) => item.type === "sauce");
   const mains = data.filter((item) => item.type === "main");
-  const [current, setCurrent] = React.useState('bun')
+  const [current, setCurrent] = React.useState('bun');
 
   return (
     <div className={`${ingredientsStyles.ingredients} pt-10`}>

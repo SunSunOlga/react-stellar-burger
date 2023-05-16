@@ -16,13 +16,20 @@ import Modal from "../Modal/Modal";
 
 function App() {
 
-  const [ingredients, setIngredients] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ headerModal, setheaderModal] = useState('');
-  
+  const [ingredients, setIngredients] = React.useState([]);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [headerModal, setheaderModal] = React.useState('');
+  const [childModal, setChildModal] = React.useState('')
 
-  function openModal() {
-     
+  function openModal (modalHeaderName = '',mainModal) {
+    setheaderModal(modalHeaderName);
+    setChildModal(mainModal);
+    setIsModalOpen(true);
+  }
+
+
+  function closeModal() {
+    setIsModalOpen(false)
   }
 
 
@@ -37,16 +44,15 @@ function App() {
 
 
   return (
-    <>
       <div className={styles.app}>
         <AppHeader />
-        <Main data={data} openModal={openModal}/>
-
-{isModalOpen && <Modal headerModal={headerModal} setIsModalOpen={setIsModalOpen}/> }
-        
-        
+        <Main data={data} openModal={openModal} />
+        {isModalOpen && (
+          <Modal headerModal={headerModal} onClose={closeModal} >
+            {childModal}
+            </Modal>
+        )}
       </div>
-    </>
   );
 }
 
