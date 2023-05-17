@@ -3,6 +3,8 @@ import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import styleCard from '../IngredientCard/IngredientCard.module.css'
 import { Counter, CurrencyIcon, Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import IngredientDetails from '../IngredientDetails/IngredientDetails';
+import PropTypes from "prop-types";
+import { ingredientPropType } from '../../utils/prop-types'
 
 function IngredientCard({ item, openModal }) {
 function onClick() {
@@ -24,3 +26,8 @@ function onClick() {
 }
 
 export default IngredientCard;
+
+IngredientCard.propTypes = {
+  item: ingredientPropType,
+  openModal: PropTypes.func,
+};

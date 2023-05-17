@@ -2,6 +2,8 @@ import React from 'react';
 import styleConstructor from '../BurgerConstructor/BurgerConstructor.module.css'
 import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import OrderDetails from '../OrderDetails/OrderDetails';
+import PropTypes from "prop-types";
+import { ingredientPropType } from '../../utils/prop-types'
 
 function BurgerConstructor({ data, openModal }) {
 
@@ -18,7 +20,7 @@ function BurgerConstructor({ data, openModal }) {
         isLocked={true}
         text="Краторная булка N-200i (верх)"
         price={200}
-        thumbnail={bunBurger.image}
+        thumbnail={bunBurger.image_mobile}
       />
 
       <div className={`${styleConstructor.sectionConstructor} mt-4 mb-4 pr-4`}>
@@ -29,7 +31,7 @@ function BurgerConstructor({ data, openModal }) {
             <ConstructorElement
               text={item.name}
               price={item.price}
-              thumbnail={item.image}
+              thumbnail={item.image_mobile}
             />
           </div>
         ))}
@@ -40,7 +42,7 @@ function BurgerConstructor({ data, openModal }) {
         isLocked={true}
         text="Краторная булка N-200i (низ)"
         price={200}
-        thumbnail={bunBurger.image}
+        thumbnail={bunBurger.image_mobile}
       />
       <div className={`${styleConstructor.footerConstructor} mt-10`}>
         <div className={`${styleConstructor.price} mr-10`}>
@@ -58,3 +60,8 @@ function BurgerConstructor({ data, openModal }) {
 }
 
 export default BurgerConstructor;
+
+BurgerConstructor.propTypes = {
+  data: PropTypes.arrayOf(ingredientPropType),
+  openModal: PropTypes.func,
+}

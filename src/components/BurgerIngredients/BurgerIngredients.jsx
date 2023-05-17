@@ -7,6 +7,7 @@ import { ingredientPropType } from '../../utils/prop-types'
 
 
 
+
 function BurgerIngredients({ data, openModal }) {
 
   const buns = data.filter((item) => item.type === "bun");
@@ -67,6 +68,11 @@ function BurgerIngredients({ data, openModal }) {
 }
 
 export default BurgerIngredients;
+
+BurgerIngredients.propTypes = {
+  data: PropTypes.arrayOf(ingredientPropType),
+  openModal: PropTypes.func,
+}
 
 
 

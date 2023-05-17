@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM, { createPortal } from 'react-dom';
 import styleModal from '../Modal/Modal.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import PropTypes from "prop-types";
+import { ingredientPropType } from '../../utils/prop-types'
 
 
 const modalRoot = document.getElementById("modal");
@@ -48,3 +50,9 @@ function Modal({ closeModal, children, headerModal = '' }) {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+    children: PropTypes.element,
+    closeModal: PropTypes.func,
+    headerModal: PropTypes.string,
+}
