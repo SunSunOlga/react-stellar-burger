@@ -1,8 +1,14 @@
-.sectionConstructor {
+.windowConstructor {
+  background: transparent;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-height: 890px;
+}
+
+.sectionConstructor {
   overflow-y: scroll;
-  max-height: 656px;
+  min-height: 50vh;
 }
 
 .sectionConstructor::-webkit-scrollbar {

@@ -10,12 +10,12 @@ function Main({ data, openModal, setheaderModal }) {
   //setheaderModal('fdsfdsf')
 
   return (
-    <div className={styleMain.main}>
+    <main className={styleMain.main}>
 
       <BurgerIngredients data={data} openModal={openModal}/>
 
       <BurgerConstructor data={data} openModal={openModal}/>
-    </div>
+    </main>
   );
 }
 

@@ -24,28 +24,28 @@ function Modal({ closeModal, children, headerModal = '' }) {
     React.useEffect(() => {
         document.addEventListener('keydown', pressEsc);
         return () => {
-            document.addEventListener('keydown', pressEsc);
+            document.removeEventListener('keydown', pressEsc);
         };
     }, []);
 
 
     return ReactDOM.createPortal(
-        <>
-<div className={`${styleModal.overlayModal} `} onClick={clickOverlay}>
         <div className={`${styleModal.modalBase} `}>
-            <div className={styleModal.modalCard}>
-                <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
-                <div className={`${styleModal.closeIcon} `}>
-                    <CloseIcon type="primary" onClick={closeModal} />
+        <div className={`${styleModal.overlayModal} `} onClick={clickOverlay}>
+          </div>
+           
+                <div className={styleModal.modalCard}>
+                    <h1 className={`${styleModal.headerModal} text text_type_main-large`}>{headerModal}</h1>
+                    <div className={`${styleModal.closeIcon} `}>
+                        <CloseIcon type="primary" onClick={closeModal} />
 
+                    </div>
+                    {children}
                 </div>
-                {children}
-            </div>
-        </div>
-        </div>
-        </>,
+           
+        </div>,
         modalRoot
-       
+
     );
 };
 
@@ -54,5 +54,4 @@ export default Modal;
 Modal.propTypes = {
     children: PropTypes.element,
     closeModal: PropTypes.func,
-    headerModal: PropTypes.string,
 }

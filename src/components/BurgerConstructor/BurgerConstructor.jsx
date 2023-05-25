@@ -14,7 +14,8 @@ function BurgerConstructor({ data, openModal }) {
   }
   
   return (
-    <div className="mt-25 ml-4">
+    <div className={`${styleConstructor.windowConstructor} mt-25 ml-4`}>
+  
       <ConstructorElement
         type="top"
         isLocked={true}
@@ -22,9 +23,11 @@ function BurgerConstructor({ data, openModal }) {
         price={200}
         thumbnail={bunBurger.image_mobile}
       />
-
+     
       <div className={`${styleConstructor.sectionConstructor} mt-4 mb-4 pr-4`}>
-        {data.map((item) => (
+        {data.map(
+          (item) => 
+          item.type !== 'bun' &&  (
           <div key={item._id} className={`${styleConstructor.burgerData}  pt-4`} >
             <DragIcon type="primary" />
 
@@ -34,9 +37,10 @@ function BurgerConstructor({ data, openModal }) {
               thumbnail={item.image_mobile}
             />
           </div>
-        ))}
+        )
+        )}
       </div>
-
+      
       <ConstructorElement
         type="bottom"
         isLocked={true}
@@ -44,6 +48,7 @@ function BurgerConstructor({ data, openModal }) {
         price={200}
         thumbnail={bunBurger.image_mobile}
       />
+    
       <div className={`${styleConstructor.footerConstructor} mt-10`}>
         <div className={`${styleConstructor.price} mr-10`}>
           <p className="text text_type_digits-medium pr-3">610</p>
