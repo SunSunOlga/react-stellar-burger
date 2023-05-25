@@ -1,0 +1,41 @@
+.ingredients {
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.IngredientsTab {
+  display: flex;
+  flex-direction: row;
+}
+
+.IngredientSection {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 912px;
+}
+
+.IngredientSection::-webkit-scrollbar {
+  width: 8px;
+  background-color: #2f2f37;
+}
+
+.IngredientSection::-webkit-scrollbar-thumb {
+  background: #8585ad;
+  scroll-behavior: smooth;
+  border: 3px solid #8585ad;
+}
+
+.IngredientSection::-webkit-scrollbar-thumb:hover {
+  background: #8585ad;
+}
+
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  row-gap: 32px;
+}
