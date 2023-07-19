@@ -22,12 +22,8 @@ _checkResponse(res) {
 
 getIngredients = () => {
     return fetch(`${this._baseUrl}/ingredients`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
-    .then(this.checkResponse);
+    .then(this._checkResponse);
   }
 }
 

@@ -13,6 +13,8 @@ function BurgerConstructor({ data, openModal }) {
     openModal(childModal);
   }
   
+  console.log({data})
+
   return (
     <div className={`${styleConstructor.windowConstructor} mt-25 ml-4`}>
   
@@ -48,7 +50,7 @@ function BurgerConstructor({ data, openModal }) {
         price={200}
         thumbnail={bunBurger.image_mobile}
       />
-    
+      
       <div className={`${styleConstructor.footerConstructor} mt-10`}>
         <div className={`${styleConstructor.price} mr-10`}>
           <p className="text text_type_digits-medium pr-3">610</p>

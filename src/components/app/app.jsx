@@ -1,6 +1,6 @@
-import styles from "./App.module.css";
+import styles from "./app.module.css";
 
-import { data } from "../../utils/data";
+import Preloader from "../Preloader/Preloader";
 
 import React, { useState, useEffect } from 'react';
 
@@ -16,12 +16,15 @@ import Modal from "../Modal/Modal";
 
 function App() {
 
-  const [ingredients, setIngredients] = useState([]);
+  const [data, setIngredients] = useState([]);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [headerModal, setheaderModal] = React.useState('');
   const [childModal, setChildModal] = React.useState('')
 
-  function openModal (modalHeaderName = '', mainModal) {
+  const [isLoading, setIsLoading] = useState(true);
+
+ 
+  function openModal(modalHeaderName = '', mainModal) {
     setheaderModal(modalHeaderName);
     setChildModal(mainModal);
     setIsModalOpen(true);
@@ -32,27 +35,39 @@ function App() {
     setIsModalOpen(false)
   }
 
-
   useEffect(() => {
+    setIsLoading(true)
     api
       .getIngredients()
       .then((data) => {
-        setIngredients(data);
+        setIngredients(data.data);
+        setIsLoading(false)
+        console.log(data.data)
       })
       .catch((err) => console.log(err));
+
   }, []);
 
+  if (data.length < 1) return null
+
+ 
+
+  if (isLoading) {
+    return (
+      <Preloader />
+    )
+  }
 
   return (
-      <div className={styles.app}>
-        <AppHeader />
-        <Main data={data} openModal={openModal} />
-        {isModalOpen && (
-          <Modal headerModal={headerModal} closeModal={closeModal} >
-            {childModal}
-            </Modal>
-        )}
-      </div>
+    <div className={styles.app}>
+      <AppHeader />
+      <Main data={data} openModal={openModal} />
+      {isModalOpen && (
+        <Modal headerModal={headerModal} closeModal={closeModal} >
+          {childModal}
+        </Modal>
+      )}
+    </div>
   );
 }
 
