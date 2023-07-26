@@ -4,16 +4,23 @@ import IngredientCard from '../IngredientCard/IngredientCard'
 import { Counter, CurrencyIcon, Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
-
-
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function BurgerIngredients({ data, openModal }) {
-
+ 
   const buns = data.filter((item) => item.type === "bun");
   const sauces = data.filter((item) => item.type === "sauce");
   const mains = data.filter((item) => item.type === "main");
   const [current, setCurrent] = React.useState('bun');
+   //табы переключалка
+  //const current = useSelector(store => store.cart.currentTab);
+//   const dispatch = useDispatch();
+  
+//   const switchTab  = () => {  / в onClick нид switchTab
+//    dispatch({  type: TAB_SWITCH });
+//  };
+//const className = `${styles.tab} ${active ? styles.tab_type_current : ''}`;
 
   return (
     <div className={`${ingredientsStyles.ingredients} pt-10`}>

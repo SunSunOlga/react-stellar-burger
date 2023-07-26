@@ -4,8 +4,29 @@ import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktiku
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
+import { ADD, REMOVE } from '../../Services/Action';
 
 function BurgerConstructor({ data, openModal }) {
+
+// const discount  = useSelector(store => store.cart.promoDiscount ); думаю тут будет ощая стоимость или создам потом отдельно контейнер
+
+// const distpatch = useDispatch();
+// const upCounter = () => {
+//   dispatch(addNumCounter(1))  //ВМЕСТО СОЗДАНИЯ ОБЪЕКТА-ПРОСТО ВЫЗЫВАЕМ Ф-ЦИЮ,КОТОРАЯ (ACTIONS)
+// }
+// const downCounter = () => {
+ // dispatch(removeNumCounter(1))
+// }
+
+///////////// ТУЛКИТ
+
+//const upCounter = () => {
+  //   dispatch(addNum(1))  //вписываем ф-ции
+  // const downCounter = () => {
+   // dispatch(removeNum(1))
+  // }
+
+ // const InitiaCards = useSelector(store => store.photos.photos) //береём из хранлища
 
   const bunBurger = data.find((item) => item.type === 'bun');
   function onClick() {
@@ -13,8 +34,6 @@ function BurgerConstructor({ data, openModal }) {
     openModal(childModal);
   }
   
-  console.log({data})
-
   return (
     <div className={`${styleConstructor.windowConstructor} mt-25 ml-4`}>
   
