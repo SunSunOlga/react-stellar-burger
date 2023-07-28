@@ -10,13 +10,6 @@ import { store } from './Services/store'
 
 const root = ReactDOM.creatRoot(document.getElementById("root"))
 
-//const store = createStore();
-
-// action = {
-//   type: 'REMOVE',
-//   payload : {}
-// }
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>
