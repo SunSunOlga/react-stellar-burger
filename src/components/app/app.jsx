@@ -17,7 +17,7 @@ import { fetchIngredients } from "../../Services/Reducers/IngredientsSlice";
 
 function App() {
 
-  const [data, setIngredients] = useState([]);
+//  const [data, setIngredients] = useState([]);
 //const items = useSelector(store => store.cart.items)//потом меняет из data в items
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -25,6 +25,7 @@ function App() {
   const [childModal, setChildModal] = React.useState('')
 
   const isLoading = useSelector(store => store.ingredients.isLoading)
+  const ingredients = useSelector(store=> store.ingredients.ingredients)
   const dispatch = useDispatch();
 
 
@@ -46,9 +47,10 @@ function App() {
  useEffect(() => {
   dispatch(fetchIngredients());// дистпатчим ту самую ассинроную функцию
 }, [])
+console.log(useSelector(state=> state.ingredients))
 
 
-  if (data.length < 1) return null
+  if (ingredients.length < 1) return null
 
   if (isLoading) {
     return (
@@ -59,7 +61,7 @@ function App() {
   return (
     <div className={styles.app}>
       <AppHeader />
-      <Main openModal={openModal} /> {/*перемееная count передали бы в data={count} count взялся в store(InitialState*/}
+      <Main  openModal={openModal} /> {/*перемееная count передали бы в data={count} count взялся в store(InitialState*/}
       {isModalOpen && (
         <Modal headerModal={headerModal} closeModal={closeModal} >
           {childModal}

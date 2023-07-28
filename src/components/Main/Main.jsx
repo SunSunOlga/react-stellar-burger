@@ -20,7 +20,7 @@ function Main({ openModal}) {
 
       <BurgerIngredients openModal={openModal}/>
 
-      <BurgerConstructor  openModal={openModal}/>
+      <BurgerConstructor  openModal={openModal}/> 
     </main>
   );
 }

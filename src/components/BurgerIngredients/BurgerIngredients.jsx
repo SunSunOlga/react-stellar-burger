@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ingredientsStyles from '../BurgerIngredients/BurgerIngredients.module.css';
 import IngredientCard from '../IngredientCard/IngredientCard'
 import { Counter, CurrencyIcon, Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchIngredients } from "../../Services/Reducers/IngredientsSlice"; 
 
 
 
 function BurgerIngredients({  openModal }) {
  
   const  ingredients  = useSelector(store => store.ingredients.ingredients)
+  console.log(ingredients)
+
 
   const buns = ingredients.filter((item) => item.type === "bun");
   const sauces = ingredients.filter((item) => item.type === "sauce");
@@ -18,7 +21,10 @@ function BurgerIngredients({  openModal }) {
   const [current, setCurrent] = React.useState('bun');
 
    const dispatch = useDispatch();
-  
+
+   useEffect(() => {
+    dispatch(fetchIngredients());// дистпатчим ту самую ассинроную функцию
+  }, [])
 
 
   return (

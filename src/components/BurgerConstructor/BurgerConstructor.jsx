@@ -6,13 +6,13 @@ import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
 import { useDispatch, useSelector } from 'react-redux';
 
-function BurgerConstructor({ data, openModal }) {
+function BurgerConstructor({ ingredient, openModal }) {
 
 // const discount  = useSelector(store => store.cart.promoDiscount ); думаю тут будет ощая стоимость или создам потом отдельно контейнер
 
- const ingredients = useSelector(store => store.ingredients) //береём из хранлища
+ const ingredients = useSelector(store => store.ingredients.ingredients) //береём из хранлища
 
-  const bunBurger = data.find((item) => item.type === 'bun');
+  const bunBurger = ingredients.find((item) => item.type === 'bun');
   function onClick() {
     const childModal = <OrderDetails order={'034536'} />;
     openModal(childModal);
