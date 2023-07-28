@@ -6,20 +6,30 @@ import IngredientDetails from '../IngredientDetails/IngredientDetails';
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
 
-function IngredientCard({ item, openModal }) {
+function IngredientCard({ ingredient, openModal }) {
+
+  const { image, name, price } = ingredient;
+  
+//  const dispatch = useDispatch();
+
 function onClick() {
-  const childModal = <IngredientDetails item={item} />;
+  const childModal = <IngredientDetails ingredient={ingredient} />;
   openModal(childModal);
 }
 
+// function onClick() {
+//   dispatch(closeModal(ingredient));
+// }
+
+
   return (
     <div className={styleCard.IngredientCard} onClick={onClick}>
-      <img src={item.image} alt={item.name} className={`${styleCard.picture} `}></img>
+      <img src={image} alt={name} className={`${styleCard.picture} `}></img>
       <div className={styleCard.priceProduct}>
-        <p className='text text_type_digits-default  mt-1'>{item.price}</p>
+        <p className='text text_type_digits-default  mt-1'>{price}</p>
         <CurrencyIcon type="primary" />
       </div>
-      <p className='text text_type_main-default mt-1'>{item.name}</p>
+      <p className='text text_type_main-default mt-1'>{name}</p>
       <Counter count={1} size="default" />
     </div>
   );

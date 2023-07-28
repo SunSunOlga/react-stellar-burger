@@ -5,10 +5,12 @@ import App from "./components/App/app";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from './Services'
+import { store } from './Services/store'
 
 
 const root = ReactDOM.creatRoot(document.getElementById("root"))
+
+//const store = createStore();
 
 // action = {
 //   type: 'REMOVE',

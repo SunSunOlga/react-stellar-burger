@@ -4,29 +4,13 @@ import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktiku
 import OrderDetails from '../OrderDetails/OrderDetails';
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
-import { ADD, REMOVE } from '../../Services/Action';
+import { useDispatch, useSelector } from 'react-redux';
 
 function BurgerConstructor({ data, openModal }) {
 
 // const discount  = useSelector(store => store.cart.promoDiscount ); думаю тут будет ощая стоимость или создам потом отдельно контейнер
 
-// const distpatch = useDispatch();
-// const upCounter = () => {
-//   dispatch(addNumCounter(1))  //ВМЕСТО СОЗДАНИЯ ОБЪЕКТА-ПРОСТО ВЫЗЫВАЕМ Ф-ЦИЮ,КОТОРАЯ (ACTIONS)
-// }
-// const downCounter = () => {
- // dispatch(removeNumCounter(1))
-// }
-
-///////////// ТУЛКИТ
-
-//const upCounter = () => {
-  //   dispatch(addNum(1))  //вписываем ф-ции
-  // const downCounter = () => {
-   // dispatch(removeNum(1))
-  // }
-
- // const InitiaCards = useSelector(store => store.photos.photos) //береём из хранлища
+ const ingredients = useSelector(store => store.ingredients) //береём из хранлища
 
   const bunBurger = data.find((item) => item.type === 'bun');
   function onClick() {
@@ -46,7 +30,7 @@ function BurgerConstructor({ data, openModal }) {
       />
      
       <div className={`${styleConstructor.sectionConstructor} mt-4 mb-4 pr-4`}>
-        {data.map(
+        {ingredients.map(
           (item) => 
           item.type !== 'bun' &&  (
           <div key={item._id} className={`${styleConstructor.burgerData}  pt-4`} >

@@ -13,10 +13,10 @@
 
    // ТУЛКИТ //
 // используем counter,тк в сторе хранится объект,где InitialState ,а там свойство count
-export const counterSelector =(store ) => { //если кол-во <1,то открываем модальное окно
-  if(store.counter.count < 0) {  
-     openModal(true) //можем в консоль лог вывести  0 счестчик
-     return 0
-     }
-       return store.counter.count
-     }
+// export const counterSelector =(store ) => { //если кол-во <1,то открываем модальное окно
+//   if(store.counter.count < 0) {  
+//      openModal(true) //можем в консоль лог вывести  0 счестчик
+//      return 0
+//      }
+//        return store.counter.count
+//      }
