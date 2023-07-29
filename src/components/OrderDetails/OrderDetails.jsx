@@ -4,6 +4,9 @@ import done from '../../images/done.svg'
 import PropTypes from "prop-types";
 
 function OrderDetails({ order }) {
+
+    // const orderNumber = order.order.number;
+    // const name = order.name;
     return (
         <div className={`${stylesOrderDetails.section} `}>
             <p className={`${stylesOrderDetails.number} text_type_digits-large `}>{order}</p>

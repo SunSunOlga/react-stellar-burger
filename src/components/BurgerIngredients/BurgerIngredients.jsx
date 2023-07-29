@@ -12,9 +12,7 @@ import { fetchIngredients } from "../../Services/Reducers/IngredientsSlice";
 function BurgerIngredients({  openModal }) {
  
   const  ingredients  = useSelector(store => store.ingredients.ingredients)
-  console.log(ingredients)
-
-
+ 
   const buns = ingredients.filter((item) => item.type === "bun");
   const sauces = ingredients.filter((item) => item.type === "sauce");
   const mains = ingredients.filter((item) => item.type === "main");
@@ -22,9 +20,7 @@ function BurgerIngredients({  openModal }) {
 
    const dispatch = useDispatch();
 
-   useEffect(() => {
-    dispatch(fetchIngredients());// дистпатчим ту самую ассинроную функцию
-  }, [])
+
 
 
   return (

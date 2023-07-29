@@ -5,11 +5,16 @@ import { Counter, CurrencyIcon, Tab } from '@ya.praktikum/react-developer-burger
 import IngredientDetails from '../IngredientDetails/IngredientDetails';
 import PropTypes from "prop-types";
 import { ingredientPropType } from '../../utils/prop-types'
+import { clickIngredient } from '../../Services/Reducers/IngredientsSlice';
+import { useDispatch, useSelector } from "react-redux";
 
-function IngredientCard({ item, openModal }) {
+
+
+function IngredientCard({ item }) {
+  const dispatch = useDispatch();
   function onClick() {
     const childModal = <IngredientDetails item={item} />;
-    openModal(childModal);
+    dispatch(clickIngredient(item));
   }
   
     return (
@@ -29,5 +34,4 @@ export default IngredientCard;
 
 IngredientCard.propTypes = {
   item: ingredientPropType,
-  openModal: PropTypes.func,
 };

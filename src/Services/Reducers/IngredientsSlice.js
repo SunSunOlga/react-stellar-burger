@@ -5,6 +5,7 @@ const initialState = {
     ingredients: [],
     isLoading: false,
     error: '',
+    selectIngredient: null,
     }
     
     
@@ -25,23 +26,21 @@ const initialState = {
      const ingredientsSlice = createSlice({  //в параметрах первые идут опции
         name: 'ingredients',  //имя и значение/название слайса будет использоваться как основа названий для работы со стором(создание редьюсеров/экшенов и тд)
         initialState,  // это свойство как и name
-        /* reducers: { // !! при асинхроне мы не вызваем эти "action creater"  //// ЕСТЬ СВ-ВО reducers,будет описано множество действий ,которые буду воспроизведены
-            ingredientUploading(state) {  // если идет загрузка
-                state.isLoading = true;
-                state.error = '';
-            },
-            ingredientUpLoad(state, action) {    // загрузилось
-                state.isLoading = false;
-                state.error= '';
-                state.ingredients = action.payload;
-            },
-            ingredientUpLoadError(state, action) {
-                state.isLoading = false;
-                state.error = action.payload;  
-            }
+         reducers: { // !! при асинхроне мы не вызваем эти "action creater"  //// ЕСТЬ СВ-ВО reducers,будет описано множество действий ,которые буду воспроизведены
+         setIngredient: (state, action) => {
+            state.ingredients = state.ingredients.map((item) => {
+                if (item.id === action.payload.id) {
+                  return action.payload;
+                } else {
+                  return item;
+                }
+              });
          },
-        */
-    
+         clickIngredient: (state, action) => ({
+            ...state,selectIngredient: action.payload,
+         }),
+         clearIngredient: (state) => ({...state,selectIngredient: null})
+         },
          //оформляем редьюсер для экшенов
          // свойство extraReducers
          extraReducers: {  //прописываем действия
@@ -62,10 +61,14 @@ const initialState = {
         })
  
 
-export const {ingredientUploading, ingredientUpLoad, ingredientUpLoadError} = ingredientsSlice.actions;
+export const {ingredientUploading, ingredientUpLoad, ingredientUpLoadError,  setIngredient, clickIngredient, clearIngredient} = ingredientsSlice.actions;
 
      //экспортируются 2 ф-ции,которые буду являтьcя ACTOIN CREATER
     // export const {addNum, removeNum} = counterSlice.actions //берём наши функции и получаем их из нашего counterSlice и свойства actions
     
+export const selectIngredient = (state) => {
+     return state.ingredients.selectIngredient;
+}
+
  //експортируем редьюсер
 export default ingredientsSlice.reducer;

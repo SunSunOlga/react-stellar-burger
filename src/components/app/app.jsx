@@ -11,9 +11,13 @@ import AppHeader, { Logo, BurgerLink } from '../AppHeader/AppHeader';
 import Main from '../Main/Main';
 
 import Modal from "../Modal/Modal";
+
+import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchIngredients } from "../../Services/Reducers/IngredientsSlice"; 
+import { selectIngredient } from "../../Services/Reducers/IngredientsSlice";
+import { clearIngredient } from "../../Services/Reducers/IngredientsSlice";
 
 function App() {
 
@@ -27,6 +31,7 @@ function App() {
   const isLoading = useSelector(store => store.ingredients.isLoading)
   const ingredients = useSelector(store=> store.ingredients.ingredients)
   const dispatch = useDispatch();
+  const modalIngredient = useSelector(selectIngredient)
 
 
   function openModal(modalHeaderName = '', mainModal) {
@@ -37,7 +42,7 @@ function App() {
 
 
   function closeModal() {
-    setIsModalOpen(false) //ф-ция пойдет в редьюс и больше использоваться не убдет,потому убираем пропсы
+    dispatch(clearIngredient()) //ф-ция пойдет в редьюс и больше использоваться не убдет,потому убираем пропсы
   }
 //  function closeModal() { //нид дописать редьюсер в игредиент слайс
  //   dispatch(CloseModal()) 
@@ -47,7 +52,6 @@ function App() {
  useEffect(() => {
   dispatch(fetchIngredients());// дистпатчим ту самую ассинроную функцию
 }, [])
-console.log(useSelector(state=> state.ingredients))
 
 
   if (ingredients.length < 1) return null
@@ -61,10 +65,10 @@ console.log(useSelector(state=> state.ingredients))
   return (
     <div className={styles.app}>
       <AppHeader />
-      <Main  openModal={openModal} /> {/*перемееная count передали бы в data={count} count взялся в store(InitialState*/}
-      {isModalOpen && (
-        <Modal headerModal={headerModal} closeModal={closeModal} >
-          {childModal}
+      <Main   /> {/*перемееная count передали бы в data={count} count взялся в store(InitialState*/}
+      {modalIngredient && (
+        <Modal headerModal="" closeModal={closeModal}>
+          <IngredientDetails ingredient={modalIngredient}  />
         </Modal>
       )}
     </div>
